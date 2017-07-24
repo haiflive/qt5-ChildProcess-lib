@@ -7,20 +7,20 @@ clone this project near your project folder
 
 ## Build
 Open command prompt console and build library files:
-
+```
 > qmake
 > mingw32-make release
 > mingw32-make debug
-
+```
 ## Add to your project
-Open youProject.pro file and add following lines to end of file to connect library into your project
-
+To connect library into your project open youProject.pro file and add following lines to end of file:
+```
 DEPENDPATH += . ../ChildProcess
 INCLUDEPATH += ../ChildProcess
 LIBS += -L../ChildProcess/debug -lChildProcess
-
+```
 ## Your mainwindow.cpp file:
-
+```
 void MainWindow::runChildProcess()
 {
     Process *tempProcess = new Process("ping google.com", this);
@@ -33,3 +33,4 @@ void MainWindow::runChildProcess()
 void MainWindow::processResponded(QByteArray p_Data) {
     qDebug() << p_Data;
 }
+```
